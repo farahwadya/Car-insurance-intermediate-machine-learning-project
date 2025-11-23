@@ -55,4 +55,46 @@ Dominant Predictors: The model relies heavily on just three features to make pre
 - Low Impact Features:Variables like SPEEDING_VIOLATIONS and CREDIT_SCORE have negligible importance (close to zero), confirming they are poor standalone predictors of the OUTCOME.
 - Conclusion: The analysis confirms that human factor (Experience) and vehicle age are the overwhelming drivers of risk, and the model's accuracy is primarily derived from these two core variables.
 
+| Model                      | Features           | Accuracy (Test) | Precision (Class 1) | Recall (Class 1) | Notes                                                               |
+| -------------------------- | ------------------ | --------------- | ------------------- | ---------------- | ------------------------------------------------------------------- |
+| RF Original + SMOTE        | All                | 0.82            | 0.74                | 0.67             | Strong overall accuracy, weaker on claims                           |
+| RF + PCA                   | 90% variance       | 0.77            | 0.64                | 0.66             | Dimensionality reduction reduces class 1 performance                |
+| RF + Variance Threshold    | Filtered           | 0.82            | 0.74                | 0.68             | Removing low-variance features has little effect                    |
+| RF + KMeans Cluster        | +Cluster           | 0.82            | 0.74                | 0.68             | Slight improvement on class 0 precision                             |
+| Deep Learning (KerasTuner) | All + tuned layers | 0.78            | 0.60                | 0.89             | Best at detecting claims (class 1), slightly lower overall accuracy |
 
+Recommendations
+
+Goal: Detect insurance claims (class 1) → Deep Learning model preferred for highest recall (0.89)
+
+Goal: General accuracy → Random Forest (original features or variance-filtered)
+
+SMOTE is critical for minority class balancing
+
+Focus on DRIVING_EXPERIENCE and VEHICLE_YEAR in risk analysis
+
+Recommendations for Stakeholders
+
+Claims Prediction Focus:
+
+Use Deep Learning model for detecting potential claims (highest recall)
+
+Prioritize monitoring novice drivers and older vehicles
+
+Risk Assessment & Premiums:
+
+Use Random Forest model if overall accuracy is preferred
+
+Factor in DRIVING_EXPERIENCE and VEHICLE_YEAR in premium calculations
+
+Policy Design & Safety Programs:
+
+Offer training programs for novice drivers
+
+Encourage upgrading older vehicles for lower premiums
+
+Resource Allocation:
+
+Focus claim investigations on high-risk groups identified by the model
+
+Allocate marketing and incentives for safe driving based on predictive features
