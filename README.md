@@ -61,7 +61,7 @@ Dominant Predictors: The model relies heavily on just three features to make pre
 | RF + PCA                   | 90% variance       | 0.77            | 0.64                | 0.66             | Dimensionality reduction reduces class 1 performance                |
 | RF + Variance Threshold    | Filtered           | 0.82            | 0.74                | 0.68             | Removing low-variance features has little effect                    |
 | RF + KMeans Cluster        | +Cluster           | 0.82            | 0.74                | 0.68             | Slight improvement on class 0 precision                             |
-| Deep Learning (KerasTuner) | All + tuned layers | 0.78            | 0.60                | 0.89             | Best at detecting claims (class 1), slightly lower overall accuracy |
+| Deep Learning (KerasTuner) | All + tuned layers | 0.73            | 0.55–0.60           | 0.89–0.90        | Excellent at catching Class 1 (high recall), but lower precision and overall accuracy |
 
 Recommendations
 
