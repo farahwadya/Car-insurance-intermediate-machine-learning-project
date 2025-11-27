@@ -47,13 +47,6 @@ scale numeric features if needed
 ## modeling
 - Random forest classification with 83% accurecy
 
-## Feature permutation
-<img width="862" height="547" alt="image" src="https://github.com/user-attachments/assets/b268f77a-5d0f-465b-8f42-c5a777a9513b" />
-
-Dominant Predictors: The model relies heavily on just three features to make predictions: 
-- DRIVING_EXPERIENCE (most important, $\approx 7.8\%$), VEHICLE_YEAR_before 2015 ($\approx 4.2\%$), and VEHICLE_OWNERSHIP ($\approx 3.8\%$).
-- Low Impact Features:Variables like SPEEDING_VIOLATIONS and CREDIT_SCORE have negligible importance (close to zero), confirming they are poor standalone predictors of the OUTCOME.
-- Conclusion: The analysis confirms that human factor (Experience) and vehicle age are the overwhelming drivers of risk, and the model's accuracy is primarily derived from these two core variables.
 
 | Model                      | Features           | Accuracy (Test) | Precision (Class 1) | Recall (Class 1) | Notes                                                               |
 | -------------------------- | ------------------ | --------------- | ------------------- | ---------------- | ------------------------------------------------------------------- |
@@ -63,6 +56,16 @@ Dominant Predictors: The model relies heavily on just three features to make pre
 | RF + KMeans Cluster        | +Cluster           | 0.82            | 0.74                | 0.68             | Slight improvement on class 0 precision                             |
 | Deep Learning (KerasTuner) | All + tuned layers | 0.73            | 0.55–0.60           | 0.89–0.90        | Excellent at catching Class 1 (high recall), but lower precision and overall accuracy |
 
+
+## Feature permutation
+<img width="862" height="547" alt="image" src="https://github.com/user-attachments/assets/b268f77a-5d0f-465b-8f42-c5a777a9513b" />
+
+Dominant Predictors: The model relies heavily on just three features to make predictions: 
+- DRIVING_EXPERIENCE (most important, $\approx 7.8\%$), VEHICLE_YEAR_before 2015 ($\approx 4.2\%$), and VEHICLE_OWNERSHIP ($\approx 3.8\%$).
+- Low Impact Features:Variables like SPEEDING_VIOLATIONS and CREDIT_SCORE have negligible importance (close to zero), confirming they are poor standalone predictors of the OUTCOME.
+- Conclusion: The analysis confirms that human factor (Experience) and vehicle age are the overwhelming drivers of risk, and the model's accuracy is primarily derived from these two core variables.
+
+  
 Recommendations
 
 Goal: Detect insurance claims (class 1) → Deep Learning model preferred for highest recall (0.89)
