@@ -9,7 +9,7 @@ The goal of this project is to predict whether a driver will file an insurance c
 ## Dataset Description
 - link: https://www.kaggle.com/datasets/sagnik1511/car-insurance-data
   
-- Rows represent individual drivers.
+- Rows represent individual drivers.(10,000) drivers
 
 - Features include:
 
